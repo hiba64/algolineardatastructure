@@ -1,0 +1,24 @@
+ALGORITHM Problem_2_Solution_1
+VAR
+ set1 : ARRAY_OF INTEGER[];
+ set2 : ARRAY_OF INTEGER[];
+ sum : INTEGER := 0;
+ i,j:INTEGER;
+
+BEGIN
+
+ Write("Give the elements of the first set");
+ Read(set1);
+ Write("Give the elements of the second set");
+ Read(set2);
+ FOR i FROM 0 TO set1.length-1 STEP 1  DO
+    FOR j FROM 0 TO set2.length-1 STEP 1  DO
+        IF (set1[i]=set2[j]) THEN
+            sum:= sum + set1[i]*2;
+        END_IF
+    END_FOR
+ END_FOR
+ 
+ Write("the sum is:=" sum);
+ 
+END

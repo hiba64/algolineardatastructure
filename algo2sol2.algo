@@ -1,0 +1,45 @@
+ALGORITHM sum_distinct2
+VAR
+ set1 : ARRAY_OF INTEGER[];
+ set2 : ARRAY_OF INTEGER[];
+ sum : INTEGER := 0;
+ 
+ i,j,count:INTEGER;
+ H:HASH_TABLE<INTEGER ,INTEGER>
+ 
+
+BEGIN
+
+ Write("Give the elements of the first set");
+ Read(set1);
+ Write("Give the elements of the second set");
+ Read(set2);
+
+  FOR i FROM 0 TO set1.length-1 STEP 1  DO
+     IF (H.lookup(set1[i]) = TRUE ) THEN
+       count:= H.get(set1[i]);
+       H.insert(set1[i],count++);
+
+     ELSE
+        count:=1;
+         H.insert(set1[i],count);
+    END_IF
+    END_FOR
+     FOR i FROM 0 TO set2.length-1 STEP 1  DO
+     IF (H.lookup(set2[i]) = TRUE ) THEN
+       count:= H.get(set2[i]);
+       H.insert(set2[i],count++);
+
+     ELSE
+        count:=1;
+         H.insert(set1[i],count);
+    END_IF
+     tab=H.getkeys();
+    FOR i FROM 0 TO tab.length-1 STEP 1  DO
+       IF(H.get(tab[i]>1)
+       sum:=sum+tab[i]*2;
+       END_IF
+    END_FOR
+    write(sum);
+    END
+   

@@ -1,0 +1,45 @@
+
+ALGORITHM sum_distinct
+VAR
+ set1 : ARRAY_OF INTEGER[];
+ set2 : ARRAY_OF INTEGER[];
+ sum : INTEGER := 0;
+ i,j:INTEGER;
+
+BEGIN
+
+ Write("Give the elements of the first set");
+ Read(set1);
+ Write("Give the elements of the second set");
+ Read(set2);
+ FOR i FROM 0 TO set1.length-1 STEP 1  DO
+    FOR j FROM 0 TO set2.length-1 STEP 1  DO
+        IF (set1[i]<>set2[j]) THEN
+         exist:=false;
+        ELSE
+        exist:=true;
+        END_IF
+        IF (!exist) THEN
+        set3:=set3.concat(set2[i]);
+        END_IF
+    END_FOR
+ END_FOR
+ FOR i FROM 0 TO set2.length-1 STEP 1  DO
+    FOR j FROM 0 TO set1.length-1 STEP 1  DO
+        IF (set1[i]<>set2[j]) THEN
+            exist:=false
+        ELSE
+         exist:=true;
+        END_IF
+    END_FOR
+     IF (!exist) THEN
+        set3:=set3.concat(set2[i]);
+        END_IF
+ END_FOR
+ write(T3);
+ FOR i FROM 0 TO set3.length-1 STEP 1  DO
+    sum:=sum+set3[i];
+ END_FOR
+ Write("The sum of the elements is :=" sum);
+
+END
